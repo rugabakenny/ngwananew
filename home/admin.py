@@ -4,3 +4,8 @@ from .models import*
 # Register your models here.
 
 admin.site.register(UserRegisted)
+admin.site.register(Hotel)
+admin.site.register(Travel)
+admin.site.register(Currency)
+admin.site.register(Mokoro)
+admin.site.register(Boat)

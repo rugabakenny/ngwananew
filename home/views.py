@@ -28,3 +28,81 @@ def userregisted(request):
             return JsonResponse({'message':'Account created, Succcessful'}, status=201)
         return JsonResponse(serializer.errors, status=401)    
 
+@csrf_exempt
+def hotel(request):
+   
+    if request.method == 'GET':
+        reg = hotel.objects.all()
+        serializer = HotelSerializer(reg, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request) #request.data
+        serializer = HotelSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse({'message':'successful'}, status=201)
+        return JsonResponse(serializer.errors, status=400)  
+@csrf_exempt
+def travel(request):
+   
+    if request.method == 'GET':
+        reg = travel.objects.all()
+        serializer = TravelSerializer(reg, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request) #request.data
+        serializer = TravelSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse({'message':'successful'}, status=201)
+        return JsonResponse(serializer.errors, status=400) 
+
+def currency(request):
+   
+    if request.method == 'GET':
+        reg = travel.objects.all()
+        serializer = CurrencySerializer(reg, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request) #request.data
+        serializer = CurrencySerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse({'message':'successful'}, status=201)
+        return JsonResponse(serializer.errors, status=400) 
+
+def mokoro(request):
+   
+    if request.method == 'GET':
+        reg = mokoro.objects.all()
+        serializer = MokoroSerializer(reg, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request) #request.data
+        serializer = MokoroSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse({'message':'successful'}, status=201)
+        return JsonResponse(serializer.errors, status=400) 
+
+
+
+        
+def boat(request):
+   
+    if request.method == 'GET':
+        reg = boat.objects.all()
+        serializer = BoatSerializer(reg, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request) #request.data
+        serializer = BoatSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse({'message':'successful'}, status=201)
+        return JsonResponse(serializer.errors, status=400) 

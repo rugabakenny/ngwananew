@@ -32,5 +32,31 @@ class RegistedSerializer(serializers.ModelSerializer):
         )
         return insert    
  
-        fields=('__all__')    
+        fields=('__all__')  
+        
+          
+class HotelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Hotel
+        fields=('__all__') 
 
+
+class TravelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Travel
+        fields=('__all__') 
+        
+class CurrencySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Currency
+        fields=('__all__') 
+
+class MokoroSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Mokoro
+        fields=('__all__') 
+
+class BoatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Boat
+        fields=('__all__') 
