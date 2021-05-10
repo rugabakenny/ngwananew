@@ -11,9 +11,11 @@ class UserRegisted(models.Model):
 
     
 class Hotel(models.Model):
+  
     image = models.ImageField(max_length=255)
     location = models.CharField(max_length=255)
     telephone = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
    
   
     
@@ -21,18 +23,22 @@ class Hotel(models.Model):
         return self.title 
     
 class Travel(models.Model):
+   
     image = models.ImageField(max_length=255)
     location = models.CharField(max_length=255)
     telephone = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
    
   
     
     def _str_(self):
         return self.title 
 class Currency(models.Model):
+   
     image = models.ImageField(max_length=255)
     location = models.CharField(max_length=255)
     telephone = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
    
   
     
@@ -42,9 +48,12 @@ class Currency(models.Model):
 
 
 class Mokoro(models.Model):
+  
     image = models.ImageField(max_length=255)
     location = models.CharField(max_length=255)
     telephone = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
+    
    
   
     
@@ -53,12 +62,52 @@ class Mokoro(models.Model):
   
 
 class Boat(models.Model):
+   
     image = models.ImageField(max_length=255)
     location = models.CharField(max_length=255)
     telephone = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
    
   
     
     def _str_(self):
         return self.title 
+
+
+class Nightclub(models.Model):
+   
+    image = models.ImageField(max_length=255)
+    location = models.CharField(max_length=255)
+    telephone = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
+   
   
+    
+    def _str_(self):
+        return self.title 
+
+class Carrental(models.Model):
+    
+    image = models.ImageField(max_length=255)
+    location = models.CharField(max_length=255)
+    telephone = models.CharField(max_length=255)
+    price = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
+   
+  
+    
+    def _str_(self):
+        return self.title 
+
+
+class Restaurant(models.Model):
+    
+    image = models.ImageField(max_length=255)
+    location = models.CharField(max_length=255)
+    telephone = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
+   
+  
+    
+    def _str_(self):
+        return self.title 

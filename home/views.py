@@ -32,7 +32,7 @@ def userregisted(request):
 def hotel(request):
    
     if request.method == 'GET':
-        reg = hotel.objects.all()
+        reg = Hotel.objects.all()
         serializer = HotelSerializer(reg, many=True)
         return JsonResponse(serializer.data, safe=False)
 
@@ -47,7 +47,7 @@ def hotel(request):
 def travel(request):
    
     if request.method == 'GET':
-        reg = travel.objects.all()
+        reg = Travel.objects.all()
         serializer = TravelSerializer(reg, many=True)
         return JsonResponse(serializer.data, safe=False)
 
@@ -102,6 +102,53 @@ def boat(request):
     elif request.method == 'POST':
         data = JSONParser().parse(request) #request.data
         serializer = BoatSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse({'message':'successful'}, status=201)
+        return JsonResponse(serializer.errors, status=400) 
+
+       
+def nightclub(request):
+   
+    if request.method == 'GET':
+        reg =Nightclub.objects.all()
+        serializer = NightclubSerializer(reg, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request) #request.data
+        serializer = NightclubSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse({'message':'successful'}, status=201)
+        return JsonResponse(serializer.errors, status=400) 
+    
+def carrental(request):
+   
+    if request.method == 'GET':
+        reg =Carrental.objects.all()
+        serializer =CarrentalSerializer(reg, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request) #request.data
+        serializer = CarrentalSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse({'message':'successful'}, status=201)
+        return JsonResponse(serializer.errors, status=400) 
+
+    
+def restaurant(request):
+   
+    if request.method == 'GET':
+        reg =Restaurant.objects.all()
+        serializer =RestaurantSerializer(reg, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request) #request.data
+        serializer = RestaurantSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
             return JsonResponse({'message':'successful'}, status=201)

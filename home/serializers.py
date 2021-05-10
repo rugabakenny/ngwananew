@@ -60,3 +60,19 @@ class BoatSerializer(serializers.ModelSerializer):
     class Meta:
         model = Boat
         fields=('__all__') 
+
+class NightclubSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Nightclub
+        fields=('__all__') 
+
+class CarrentalSerializer(serializers.ModelSerializer):
+    class Meta:
+        model =Carrental
+        fields=('__all__') 
+
+
+class RestaurantSerializer(serializers.ModelSerializer):
+    class Meta:
+        model =Restaurant
+        fields=('__all__') 
