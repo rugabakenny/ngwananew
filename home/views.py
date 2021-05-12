@@ -77,7 +77,7 @@ def currency(request):
 def mokoro(request):
    
     if request.method == 'GET':
-        reg = mokoro.objects.all()
+        reg = Mokoro.objects.all()
         serializer = MokoroSerializer(reg, many=True)
         return JsonResponse(serializer.data, safe=False)
 
@@ -95,7 +95,7 @@ def mokoro(request):
 def boat(request):
    
     if request.method == 'GET':
-        reg = boat.objects.all()
+        reg = Boat.objects.all()
         serializer = BoatSerializer(reg, many=True)
         return JsonResponse(serializer.data, safe=False)
 
